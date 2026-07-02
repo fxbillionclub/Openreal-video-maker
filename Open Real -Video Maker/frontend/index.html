@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OpenReel — Unlimited AI Video Maker</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="bg-orbs"><div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div></div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="brand-mark">🎬</div>
+    <div>
+      <div class="brand-name">OpenReel</div>
+      <div class="brand-sub">Unlimited AI Video Maker · Self-Hosted</div>
+    </div>
+  </div>
+  <div class="badge-unlimited">
+    <span class="dot"></span> Unlimited &amp; Free — runs on your own machine, no API keys, no credits
+  </div>
+</header>
+
+<main class="container">
+
+  <section class="hero">
+    <h1>Good day, director. <span class="wave">🎬</span></h1>
+    <p class="hero-sub">Describe any story. Get a fully produced short video — AI art, narration, music &amp; captions — generated 100% locally.</p>
+  </section>
+
+  <section class="composer card">
+    <div class="composer-row">
+      <textarea id="prompt" placeholder="e.g. a curious fox discovers a glowing crystal in the forest" maxlength="400"></textarea>
+      <button id="generateBtn" class="btn-primary">
+        <span id="btnLabel">✨ Generate video</span>
+      </button>
+    </div>
+    <div class="style-picker" id="stylePicker"><!-- filled by JS --></div>
+  </section>
+
+  <section id="progressCard" class="card progress-card hidden">
+    <div class="progress-head">
+      <div id="progressStage">Starting…</div>
+      <div id="progressPct">0%</div>
+    </div>
+    <div class="progress-bar-track"><div id="progressBar" class="progress-bar-fill"></div></div>
+    <div class="progress-hint">Rendering on your own CPU/GPU — no cloud, no per-video cost.</div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="section-head">
+      <h2>Your videos</h2>
+      <button id="refreshBtn" class="btn-ghost">⟳ Refresh</button>
+    </div>
+    <div id="gallery" class="gallery-grid"><!-- filled by JS --></div>
+    <div id="emptyState" class="empty-state hidden">
+      <div class="empty-emoji">🎞️</div>
+      <div>No videos yet — generate your first one above!</div>
+    </div>
+  </section>
+
+</main>
+
+<div id="playerModal" class="modal hidden">
+  <div class="modal-backdrop"></div>
+  <div class="modal-card">
+    <button id="closeModal" class="modal-close">✕</button>
+    <video id="modalVideo" controls autoplay playsinline></video>
+    <div class="modal-info">
+      <div id="modalPrompt" class="modal-prompt"></div>
+      <div class="modal-actions">
+        <a id="downloadBtn" class="btn-primary" download>⬇ Download MP4</a>
+        <button id="deleteBtn" class="btn-danger">🗑 Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
